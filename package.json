@@ -17,12 +17,6 @@
   "keywords": [
     "hexlet"
   ],
-  "devDependencies": [
-    "babel-cli",
-    "babel-core",
-    "babel-preset-env",
-    "babel-preset-stage-0"
-  ],
   "author": "kornienko199004",
   "license": "ISC",
   "bugs": {
@@ -34,5 +28,15 @@
   "homepage": "https://github.com/kornienko199004/project-lvl1-s224#readme",
   "dependencies": {
     "readline-sync": "^1.4.8"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.17.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
   }
 }
