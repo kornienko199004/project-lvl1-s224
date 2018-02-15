@@ -43,7 +43,11 @@ const generateRandomExample = () => {
 const calc = () => {
   const randomExample = generateRandomExample();
 
-  return gameData(key(randomExample), String(value(randomExample)), chooseMessage(value(randomExample)));
+  return gameData(
+    key(randomExample),
+    String(value(randomExample)),
+    chooseMessage(value(randomExample)),
+  );
 };
 
 export default () => flow(calc, 'What is the result of the expression?');
