@@ -26,3 +26,5 @@ export const answer = pair => value(key(pair));
 export const gameMessage = pair => value(pair);
 
 export const gameData = (quest, answ, msg) => cons(cons(quest, answ), msg);
+
+export const chooseMessage = rightAnswer => userAnswer => (userAnswer === String(rightAnswer) ? 'Correct!' : 'Wrong answer.');

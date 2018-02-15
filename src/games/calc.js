@@ -1,4 +1,4 @@
-import { generateRandomNum, gameData, cons, key, value } from '../modules/commonFunc';
+import { generateRandomNum, gameData, cons, key, value, chooseMessage } from '../modules/commonFunc';
 import flow from '../modules/flow';
 
 const quantityOfNumbers = 20;
@@ -43,9 +43,7 @@ const generateRandomExample = () => {
 const calc = () => {
   const randomExample = generateRandomExample();
 
-  const gameMessage = userAnswer => (userAnswer === String(value(randomExample)) ? 'Correct!' : 'Wrong answer.');
-
-  return gameData(key(randomExample), String(value(randomExample)), gameMessage);
+  return gameData(key(randomExample), String(value(randomExample)), chooseMessage(value(randomExample)));
 };
 
 export default () => flow(calc, 'What is the result of the expression?');
