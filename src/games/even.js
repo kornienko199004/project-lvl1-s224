@@ -1,27 +1,27 @@
-import readlineSync from 'readline-sync';
-import { generateRandomNum } from '../modules/commonFunc';
+import { generateRandomNum, gameData } from '../modules/commonFunc';
+import flow from '../modules/flow';
 
 const quantityOfNumbers = 100;
 
 const evenTest = num => num % 2 === 0;
 
-const correctAnswer = (num, answer) => (answer === 'yes' && evenTest(num)) || (answer === 'no' && !evenTest(num));
+const evenStatus = num => (evenTest(num) ? 'yes' : 'no');
 
-export default () => {
+const gameMessage = (userAnswer) => {
+  switch (userAnswer) {
+    case 'yes':
+      return '"yes" is wrong answer ;(. Correct answer was "no".';
+    case 'no':
+      return '"no" is wrong answer ;(. Correct answer was "yes".';
+    default:
+      return 'Wrong answer.';
+  }
+};
+
+const even = () => {
   const randomNumber = generateRandomNum(1, quantityOfNumbers);
 
-  console.log(`Question: ${randomNumber}`);
-  const userAnswer = readlineSync.question('Your answer: ');
-
-  if (!correctAnswer(randomNumber, userAnswer)) {
-    switch (userAnswer) {
-      case 'yes':
-        return '"yes" is wrong answer ;(. Correct answer was "no".';
-      case 'no':
-        return '"no" is wrong answer ;(. Correct answer was "yes".';
-      default:
-        return 'Wrong answer.';
-    }
-  }
-  return 'Correct!';
+  return gameData(randomNumber, evenStatus(randomNumber), gameMessage);
 };
+
+export default () => flow(even, 'Answer "yes" if number even otherwise answer "no"');
