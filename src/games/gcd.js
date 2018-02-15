@@ -1,5 +1,5 @@
-import { generateRandomNum, gameData, cons, key, value, chooseMessage } from '../modules/commonFunc';
-import flow from '../modules/flow';
+import { generateRandomNum, cons, key, value } from '../modules/commonFunc';
+import flow from '../index';
 
 const getCommonDiv = (num1, num2) => {
   const division = num1 > num2 ? num2 : num1;
@@ -26,8 +26,9 @@ const generateRandomNumbers = () => {
 export const gcd = () => {
   const randomExample = generateRandomNumbers();
   const commonDivision = getCommonDiv(key(randomExample), value(randomExample));
+  console.log(commonDivision);
 
-  return gameData(`${key(randomExample)} ${value(randomExample)}`, String(commonDivision), chooseMessage(commonDivision));
+  return cons(`${key(randomExample)} ${value(randomExample)}`, String(commonDivision));
 };
 
 export default () => flow(gcd, 'Find the greatest common division of given numbers.');

@@ -1,5 +1,5 @@
-import { generateRandomNum, gameData, cons, key, value, chooseMessage } from '../modules/commonFunc';
-import flow from '../modules/flow';
+import { generateRandomNum, cons, key, value } from '../modules/commonFunc';
+import flow from '../index';
 
 const quantityOfNumbers = 20;
 const quantityOfSigns = 3;
@@ -43,11 +43,7 @@ const generateRandomExample = () => {
 const calc = () => {
   const randomExample = generateRandomExample();
 
-  return gameData(
-    key(randomExample),
-    String(value(randomExample)),
-    chooseMessage(value(randomExample)),
-  );
+  return cons(key(randomExample), String(value(randomExample)));
 };
 
 export default () => flow(calc, 'What is the result of the expression?');
