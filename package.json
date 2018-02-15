@@ -1,6 +1,6 @@
 {
   "name": "brain_games_1202",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Hexlet brain games",
   "main": "index.js",
   "scripts": {
