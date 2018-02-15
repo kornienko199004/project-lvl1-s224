@@ -3,7 +3,7 @@ import { key, value } from './modules/commonFunc';
 
 export const showWelcomeMessage = (str = '') => {
   console.log('Welcome to the Brain Games!');
-  if (!str === '') console.log(str);
+  if (str !== '') console.log(str);
   const userName = readlineSync.question('May I have you name? ');
   console.log(`Hello, ${userName}!`);
   return userName;
