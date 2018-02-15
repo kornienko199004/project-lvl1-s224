@@ -43,7 +43,7 @@ const generateRandomExample = () => {
 const calc = () => {
   const randomExample = generateRandomExample();
 
-  const gameMessage = (userAnswer) => userAnswer === String(value(randomExample)) ? 'Correct!' : 'Wrong answer.';
+  const gameMessage = userAnswer => (userAnswer === String(value(randomExample)) ? 'Correct!' : 'Wrong answer.');
 
   return gameData(key(randomExample), String(value(randomExample)), gameMessage);
 };
