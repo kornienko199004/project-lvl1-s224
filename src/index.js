@@ -20,14 +20,20 @@ export default (game, gameDescription) => {
   const userName = showWelcomeMessage(gameDescription);
 
   const askQuestion = (acc) => {
-    if (acc === 3) return acc;
+    if (acc === 3) {
+      return acc;
+    }
 
     const gameData = game();
 
     console.log(`Question: ${key(gameData)}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer === value(gameData)) console.log('Correct!');
-    if (userAnswer === value(gameData)) return askQuestion(acc + 1);
+    if (userAnswer === value(gameData)) {
+      console.log('Correct!');
+    }
+    if (userAnswer === value(gameData)) {
+      return askQuestion(acc + 1);
+    }
     return showLossMessage('Wrong answer!', userName);
   };
 
