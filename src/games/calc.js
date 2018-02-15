@@ -1,5 +1,5 @@
-import readlineSync from 'readline-sync';
-import { generateRandomNum, cons, key, value } from '../modules/commonFunc';
+import { generateRandomNum, gameData, cons, key, value } from '../modules/commonFunc';
+import flow from '../modules/flow';
 
 const quantityOfNumbers = 20;
 const quantityOfSigns = 3;
@@ -40,10 +40,13 @@ const generateRandomExample = () => {
   return cons(`${a} ${sign} ${b}`, (returnValue(i, a, b)));
 };
 
-export default () => {
+const calc = () => {
   const randomExample = generateRandomExample();
 
-  console.log(`Question: ${key(randomExample)}`);
-  const userAnswer = readlineSync.question('Your answer: ');
-  return Number(userAnswer) === value(randomExample) ? 'Correct!' : 'Wrong answer.';
+  const gameMessage = (userAnswer) => userAnswer === String(value(randomExample)) ? 'Correct!' : 'Wrong answer.';
+
+  return gameData(key(randomExample), String(value(randomExample)), gameMessage);
 };
+
+export default () => flow(calc, 'What is the result of the expression?');
+
